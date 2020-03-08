@@ -56,12 +56,6 @@ class Student {
         return;
       }
 
-      MyClass::~MyClass() {
-   cout << "Destructor called." << endl;
-   delete subObj;
-   return;
-}
-
       void   Print() const;
 };
 
