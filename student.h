@@ -6,7 +6,7 @@ using namespace std;
 
 class Student {
    public:
-      Student();
+
 
       void   SetFirstName(string firstName);
       void   SetLastName(string lastName);
@@ -14,7 +14,6 @@ class Student {
       void   SetEmailAddress(string emailAddress);
       void   SetAgeYears(int ageInYears);
       void   SetDaysToComplete(array daysToComplete);
-      void   SetDegreeType(string degreeType);
 
       string GetFirstName() const;
       string GetLastName() const;
@@ -22,7 +21,6 @@ class Student {
       string GetEmailAddress() const;
       int GetAgeYears() const;
       string GetDaysToComplete() const;
-      string GetDegreeType() const;
 
    private:
       string firstName;
@@ -31,7 +29,6 @@ class Student {
       string emailAddress;
       int ageInYears;
       string daysToComplete;
-      string degreeType;
 
       Student::Student() {
         firstName = "No Name";
@@ -40,7 +37,6 @@ class Student {
         emailAddress = "no email";
         ageInYears = "0";
         daysToComplete = "0";
-        degreeType = "None";
 
         return;
       }
@@ -51,7 +47,6 @@ class Student {
         delete emailAddress;
         delete ageInYears;
         delete daysToComplete;
-        delete degreeType;
 
         return;
       }

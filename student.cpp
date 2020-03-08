@@ -10,7 +10,6 @@ void   SetStudentId(string studentId);
 void   SetEmailAddress(string emailAddress);
 void   SetAgeInYears(int ageInYears);
 void   SetDaysToComplete(array daysToComplete);
-void   SetDegreeType(string degreeType);
 
 void Student:: SetFirstName(string firstName) {
    firstName = firstName;
@@ -42,11 +41,6 @@ void Student:: SetDaysToComplete(array daysToComplete) {
    return;
 }
 
-void Student:: SetDegreeType(string degreeType) {
-   degreeType = degreeType;
-   return;
-}
-
 string Student::GetFirstName() const {
    return firstName;
 }
@@ -66,9 +60,7 @@ string Student::GetEmailAddress() const {
 array Student::DaysToComplete() const {
    return daysToComplete;
 }
-string Student::GetDegreeType() const {
-   return degreeType;
-}
+
 
 void Student::Print() const {
    cout << "Student ID: " << studentId << endl;
@@ -77,5 +69,4 @@ void Student::Print() const {
    cout << "Email: " << emailAddress << endl;
    cout << "Age: " << ageInYears << endl;
    cout << "Days in Course: " << daysToComplete << endl;
-   cout << "Degree: " << degreeType << endl;
 }
