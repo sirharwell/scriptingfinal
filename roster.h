@@ -3,7 +3,7 @@
 
 #include "Student.h"
 
-class SoccerTeam {
+class Student {
    public:
 
      const string studentData[] =
