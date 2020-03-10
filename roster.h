@@ -38,10 +38,5 @@ class RosterArray {
  //expected: the above line should print a message saying such a student with this ID was not found.
 
    private:
-      Student headStudent;
-      Student assistantStudent;
-
 
 };
-
-#endif
