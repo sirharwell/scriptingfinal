@@ -18,7 +18,6 @@ public:
   void print_ALL();
   bool remove(string studentId);
   void printAverageDaysToComplete(string studentId);
-  void printInvalidEmailAddressEntries();
   void printByDegreeType(DegreeType s);
 
 private:
