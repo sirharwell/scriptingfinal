@@ -22,14 +22,6 @@ Student::Student(string firstName, string lastName, string studentId, string ema
   for (int i = 0; i<daysToCompleteNumber; i++) this->daysToComplete[i];
 }
 
-void   SetFirstName(string firstName);
-void   SetLastName(string lastName);
-void   SetStudentId(string studentId);
-void   SetEmailAddress(string emailAddress);
-void   SetAgeInYears(int ageInYears);
-void   SetDaysToComplete(array daysToComplete);
-
-
 string Student::getFirstName() {
    return firstName;
 }
@@ -82,7 +74,7 @@ void Student::Print() {
    cout << "Last name: " << lastName << endl;
    cout << "Email: " << emailAddress << endl;
    cout << "Age: " << ageInYears << endl;
-   cout << "Days in Course: " << daysToComplete << endl;
+   cout << "Days in Course: " << daysToComplete[0] << daysToComplete[1] << daysToComplete[2] << endl;
 }
 
 Student::~Student (){

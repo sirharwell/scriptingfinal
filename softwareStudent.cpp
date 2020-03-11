@@ -1,23 +1,35 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 #include "softwareStudent.h"
 
 
-void   SetDegreeType(string degreeType);
-
-
-void Student:: SetDegreeType(string degreeType) {
-   degreeType = degreeType;
+SoftwareStudent::SoftwareStudent():Student {
+   dType = SOFTWARE;
    return;
 }
-
-
-string Student::GetDegreeType() const {
-   return degreeType;
+SoftwareStudent::SoftwareStudent(
+  string firstName,
+  string lastName,
+  string studentId,
+  string emailAddress,
+  int    ageInYears,
+  double daysToComplete[],
+  DegreeType degreeType
+):
+Student(firstName, lastName, studentId, emailAddress, ageInYears, daysToComplete) {
+  dtype = SOFTWARE;
 }
 
-void Student::Print() const {
-   cout << "Degree: " << degreeType << endl;
+DegreeType SoftwareStudent::getDegreeType() {
+  return SOFTWARE;
+}
+
+void SoftwareStudent::print() {
+  this->Student::print();
+  cout << "SOFTWARE" << endl;
+}
+
+SoftwareStudent::~SoftwareStudent() {
+  Student::~Student();
 }

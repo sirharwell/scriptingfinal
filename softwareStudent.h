@@ -1,32 +1,23 @@
-#ifndef STUDENT_H
-#define STUDENT_H
-
 #include <string>
+#include "student.h"
 using namespace std;
 
 class SoftwareStudent : public Student {
    public:
 
-      void   SetDegreeType(string degreeType);
-      string GetDegreeType() const;
+     SoftwareStudent();
+     SoftwareStudent(
+       string firstName,
+       string lastName,
+       string studentId,
+       string emailAddress,
+       int    ageInYears,
+       double daysToComplete[],
+       DegreeType degreeType
+     );
 
-   private:
+     DegreeType getDegreeType();
+     void print();
 
-      string degreeType;
-
-      Student::Student() {
-        degreeType = "None";
-
-        return;
-      }
-      Student::~Student() {
-
-        delete degreeType;
-
-        return;
-      }
-      
-      void   Print() const;
-};
-
-#endif
+     ~SoftwareStudent();
+   };
