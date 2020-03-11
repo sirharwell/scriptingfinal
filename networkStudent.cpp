@@ -1,23 +1,35 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-#include "softwareStudent.h"
-
-
-void   SetDegreeType(string degreeType);
+#include "networkStudent.h"
 
 
-void Student:: SetDegreeType(string degreeType) {
-   degreeType = degreeType;
+NetworkStudent::NetworkStudent():Student {
+   dType = NETWORK;
    return;
 }
-
-
-string Student::GetDegreeType() const {
-   return degreeType;
+NetworkStudent::NetworkStudent(
+  string firstName,
+  string lastName,
+  string studentId,
+  string emailAddress,
+  int    ageInYears,
+  double daysToComplete[],
+  DegreeType degreeType
+):
+Student(firstName, lastName, studentId, emailAddress, ageInYears, daysToComplete) {
+  dtype = NETWORK;
 }
 
-void Student::Print() const {
-   cout << "Degree: " << degreeType << endl;
+DegreeType NetworkStudent::getDegreeType() {
+  return NETWORK;
+}
+
+void NetworkStudent::print() {
+  this->Student::print();
+  cout << "NETWORK" << endl;
+}
+
+NetworkStudent::~NetworkStudent() {
+  Student::~Student();
 }

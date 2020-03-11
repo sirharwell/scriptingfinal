@@ -1,23 +1,35 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-#include "softwareStudent.h"
-
-
-void   SetDegreeType(string degreeType);
+#include "securityStudent.h"
 
 
-void Student:: SetDegreeType(string degreeType) {
-   degreeType = degreeType;
+SecurityStudent::SecurityStudent():Student {
+   dType = SECURITY;
    return;
 }
-
-
-string Student::GetDegreeType() const {
-   return degreeType;
+SecurityStudent::SecurityStudent(
+  string firstName,
+  string lastName,
+  string studentId,
+  string emailAddress,
+  int    ageInYears,
+  double daysToComplete[],
+  DegreeType degreeType
+):
+Student(firstName, lastName, studentId, emailAddress, ageInYears, daysToComplete) {
+  dtype = SECURITY;
 }
 
-void Student::Print() const {
-   cout << "Degree: " << degreeType << endl;
+DegreeType SecurityStudent::getDegreeType() {
+  return SECURITY;
+}
+
+void SecurityStudent::print() {
+  this->Student::print();
+  cout << "SECURITY" << endl;
+}
+
+SecurityStudent::~SecurityStudent() {
+  Student::~Student();
 }
