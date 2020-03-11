@@ -1,22 +1,3 @@
-#ifndef "Student.h"
-#define "Student.h"
+enum DegreeType {SECURITY, NETWORK, SOFTWARE};
 
-#include "Student.h"
-
-class SoccerTeam {
-   public:
-      void SetHeadStudent(Student Student);
-      void SetAssistantStudent (Student Student);
-
-      Student GetHeadStudent() const;
-      Student GetAssistantStudent() const;
-
-      void Print() const;
-
-   private:
-      Student headStudent;
-      Student assistantStudent;
-      // Players omitted for brevity
-};
-
-#endif
+static const std::string degreeTypeStrings[] = { "SECURITY, NETWORK, SOFTWARE"};

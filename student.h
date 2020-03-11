@@ -1,57 +1,40 @@
-#ifndef STUDENT_H
-#define STUDENT_H
-
 #include <string>
 using namespace std;
 
 class Student {
    public:
+      const static in daysToCompleteNumber = 3;
 
+   protected:
 
-      void   SetFirstName(string firstName);
-      void   SetLastName(string lastName);
-      void   SetStudentId(string studentId);
-      void   SetEmailAddress(string emailAddress);
-      void   SetAgeYears(int ageInYears);
-      void   SetDaysToComplete(array daysToComplete);
-
-      string GetFirstName() const;
-      string GetLastName() const;
-      string GetStudentId() const;
-      string GetEmailAddress() const;
-      int GetAgeYears() const;
-      string GetDaysToComplete() const;
-
-   private:
       string firstName;
       string lastName;
       string studentId;
       string emailAddress;
-      int ageInYears;
-      string daysToComplete;
+      int    ageInYears;
+      double daysToComplete;
+      DegreeType dtype;
 
-      Student::Student() {
-        firstName = "No Name";
-        lastName  = "No Name";
-        studentId = "0000";
-        emailAddress = "no email";
-        ageInYears = "0";
-        daysToComplete = "0";
+  public:
+      Student();
+      Student(string firstName, string lastName, string studentId, string emailAddress, double daysToComplete[]);
 
-        return;
-      }
-      Student::~Student() {
-        delete firstName;
-        delete lastName;
-        delete studentId;
-        delete emailAddress;
-        delete ageInYears;
-        delete daysToComplete;
+      string getFirstName;
+      string getLastName;
+      string getStudentId;
+      string getEmailAddress;
+      int    getAgeInYears;
+      double getDaysToComplete;
+      virtual DegreeType getDegreeType() = 0;
 
-        return;
-      }
+      void setFirstName(string firstName);
+      void setLastName(string lastName);
+      void setStudentId(string studentId);
+      void setEmailAddress(string emailAddress);
+      void setAgeInYears(string ageInYears);
+      void setDaysToComplete(double daysToComplete[]);
 
-      void   Print() const;
+      virtual void print() = 0;
+
+      ~Student();
 };
-
-#endif
