@@ -4,6 +4,24 @@ using namespace std;
 
 #include "student.h"
 
+Student::Student() {
+  this->firstName = " ";
+  this->lastName = " ";
+  this->studentId = " ";
+  this->emailAddress = " ";
+  this->ageInYears = " ";
+  for (in i = 0; i<daysToCompleteNumber; i++) this->daysToComplete[i] = 0;
+}
+
+Student::Student(string firstName, string lastName, string studentId, string emailAddress, double daysToComplete[]) {
+  this->firstName = firstName;
+  this->lastName = lastName;
+  this->studentId = studentId;
+  this->emailAddress = emailAddress;
+  this->ageInYears = ageInYears;
+  for (int i = 0; i<daysToCompleteNumber; i++) this->daysToComplete[i];
+}
+
 void   SetFirstName(string firstName);
 void   SetLastName(string lastName);
 void   SetStudentId(string studentId);
@@ -11,62 +29,62 @@ void   SetEmailAddress(string emailAddress);
 void   SetAgeInYears(int ageInYears);
 void   SetDaysToComplete(array daysToComplete);
 
-void Student:: SetFirstName(string firstName) {
-   firstName = firstName;
-   return;
-}
 
-void Student:: SetLastName(string lastName) {
-   lastName = lastName;
-   return;
-}
-
-void Student::SetAgeInYears(int ageInYears) {
-   ageInYears = ageInYears;
-   return;
-}
-
-void Student:: SetStudentId(string studentId) {
-   studentId = studentId;
-   return;
-}
-
-void Student:: SetEmailAddress(string emailAddress) {
-   emailAddress = emailAddress;
-   return;
-}
-
-void Student:: SetDaysToComplete(array daysToComplete) {
-   daysToComplete = daysToComplete;
-   return;
-}
-
-string Student::GetFirstName() const {
+string Student::getFirstName() {
    return firstName;
 }
 
-string Student::GetLastName() const {
+string Student::getLastName() {
    return lastName;
 }
 
-int Student::GetAgeInYears() const {
+int Student::getAgeInYears() {
    return ageInYears;
 }
 
-string Student::GetEmailAddress() const {
+string Student::getEmailAddress() {
    return emailAddress;
 }
 
-array Student::DaysToComplete() const {
+double * Student::getDaysToComplete() {
    return daysToComplete;
 }
+void Student:: setFirstName(string firstName) {
+   this->firstName = firstName;
+}
+
+void Student:: setLastName(string lastName) {
+   this->lastName = lastName;
+}
+
+void Student::setAgeInYears(int ageInYears) {
+   this->ageInYears = ageInYears;
+}
+
+void Student:: setStudentId(string studentId) {
+   this->studentId = studentId;
+}
+
+void Student:: setEmailAddress(string emailAddress) {
+  this->emailAddress = emailAddress;
+}
+
+void Student:: setDaysToComplete(double daysToComplete[]) {
+   for (int i = 0; i<daysToCompleteNumber; i++)
+    this->daysToComplete[i] = daysToComplete[i];
+   }
 
 
-void Student::Print() const {
+
+void Student::Print() {
    cout << "Student ID: " << studentId << endl;
    cout << "First name: " << firstName << endl;
    cout << "Last name: " << lastName << endl;
    cout << "Email: " << emailAddress << endl;
    cout << "Age: " << ageInYears << endl;
    cout << "Days in Course: " << daysToComplete << endl;
+}
+
+Student::~Student (){
+
 }

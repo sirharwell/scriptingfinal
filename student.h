@@ -17,7 +17,7 @@ class Student {
 
   public:
       Student();
-      Student(string firstName, string lastName, string studentId, string emailAddress, double daysToComplete[]);
+      Student(string firstName, string lastName, string studentId, string emailAddress, int ageInYears, double daysToComplete[]);
 
       string getFirstName;
       string getLastName;
