@@ -1,23 +1,25 @@
 #include <iostream>
 #include <string>
-using namespace std;
 #include "networkStudent.h"
+using namespace std;
 
 
-NetworkStudent::NetworkStudent():Student {
-   dType = NETWORK;
+
+NetworkStudent::NetworkStudent():Student() {
+   dtype = NETWORK;
    return;
-}
+ }
+
 NetworkStudent::NetworkStudent(
+  string studentId,
   string firstName,
   string lastName,
-  string studentId,
   string emailAddress,
-  int    ageInYears,
+  string ageInYears,
   double daysToComplete[],
   DegreeType degreeType
 ):
-Student(firstName, lastName, studentId, emailAddress, ageInYears, daysToComplete) {
+Student(studentId, firstName, lastName, emailAddress, ageInYears, daysToComplete) {
   dtype = NETWORK;
 }
 
@@ -28,8 +30,4 @@ DegreeType NetworkStudent::getDegreeType() {
 void NetworkStudent::print() {
   this->Student::print();
   cout << "NETWORK" << endl;
-}
-
-NetworkStudent::~NetworkStudent() {
-  Student::~Student();
 }

@@ -7,11 +7,11 @@ class SecurityStudent : public Student {
 
      SecurityStudent();
      SecurityStudent(
+       string studentId,
        string firstName,
        string lastName,
-       string studentId,
        string emailAddress,
-       int    ageInYears,
+       string ageInYears,
        double daysToComplete[],
        DegreeType degreeType
      );

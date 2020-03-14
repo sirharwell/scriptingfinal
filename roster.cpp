@@ -1,7 +1,9 @@
 #include <iostream>
-using namespace std;
-
 #include "roster.h"
+using std::cout;
+using std::cerr;
+
+
 
 Roster::Roster() {
   this->capacity = 0;
@@ -20,25 +22,26 @@ Student * Roster::getStudentAt(int index) {
 }
 
 void Roster::parseThenAdd(string row) {
-  if (lastIndex < capacity) {
-    lastIndex++;
-      if (row[-1] == 'E') degreeType = SOFTWARE;
-      else if (row[-1] == 'Y') degreeType = SECURITY;
-      else if (row[-1] == 'K') degreeType = NETWORK;
+    if (lastIndex < capacity) {
+        lastIndex++;
+        DegreeType degreeType;
+        if (row[0] == 'F') degreeType = SOFTWARE;
+      else if (row[0] == 'S') degreeType = SECURITY;
+      else if (row[0] == 'N') degreeType = NETWORK;
       else {
         cerr << "Invalid Degree" << endl;
         exit(-1);
       }
   int rhs = row.find(",");
-  string sId = row.substr(0, rhs);
+  string sLast = row.substr(0, rhs);
 
   int lhs = rhs + 1;
   rhs = row.find(",", lhs);
-  string sFirst = row.substr(lhs, rhs - lhs);
+  string sId = row.substr(lhs, rhs - lhs);
 
   lhs = rhs + 1;
   rhs = row.find(",", lhs);
-  string sLast = row.substr(lhs, rhs - lhs);
+  string sFirst = row.substr(lhs, rhs - lhs);
 
   lhs = rhs + 1;
   rhs = row.find(",", lhs);
@@ -46,7 +49,7 @@ void Roster::parseThenAdd(string row) {
 
   lhs = rhs + 1;
   rhs = row.find(",", lhs);
-  int sAge = row.substr(lhs, rhs - lhs);
+  string sAge = row.substr(lhs, rhs - lhs);
 
   lhs = rhs + 1;
   rhs = row.find(",", lhs);
@@ -65,18 +68,18 @@ void Roster::parseThenAdd(string row) {
 
   else {
     cerr << "error, list has exceeded maximum capacity << end; << exiting now";
-    exit(-1)
+    exit(-1);
   }
 }
 
-void Roster::add(string sId, string sFirst, string sLast, string sEmail, int sAge, double sD1, double sD2, double sD3, degreeType sDegree) {
-  double daysToComplete[Student::daysToCompleteNumber];
+void Roster::add(string sId, string sFirst, string sLast, string sEmail, string sAge, double sD1, double sD2, double sD3, DegreeType sDegree) {
+  double daysToComplete[Student::daysArraySize];
   daysToComplete[0] = sD1;
   daysToComplete[1] = sD2;
   daysToComplete[2] = sD3;
-  if (sDegree == SOFTWARE) students[lastIndex] = new softwareStudent(sId,sFirst,sLast,sEmail,sAge,daysToComplete,degreeType);
-  else if (sDegree == SECURITY) students[lastIndex] = new securityStudent(sId,sFirst,sLast,sEmail,sAge,daysToComplete,degreeType);
-  else students[lastIndex] = new networkStudent(sId,sFirst,sLast,sEmail,sAge,daysToComplete,degreeType);
+  if (sDegree == SOFTWARE) students[lastIndex] = new SoftwareStudent(sId,sFirst,sLast,sEmail,sAge,daysToComplete,sDegree);
+  else if (sDegree == SECURITY) students[lastIndex] = new SecurityStudent(sId,sFirst,sLast,sEmail,sAge,daysToComplete,sDegree);
+  else students[lastIndex] = new NetworkStudent(sId,sFirst,sLast,sEmail,sAge,daysToComplete,sDegree);
   }
 
 void Roster::print_ALL() {
@@ -84,6 +87,7 @@ void Roster::print_ALL() {
   }
 
 bool Roster::remove(string sId) {
+    bool found = false;
   for (int i = 0; i <= lastIndex; i++) {
     if (this->students[i]->getStudentId() == sId) {
       found = true;
@@ -107,10 +111,10 @@ void Roster::printAverageDaysToComplete(string studentId) {
   if (!found) cout << "Student not found" << endl;
 }
 
-void Roster::printByDegreeType(degreeType d) {
-  cout << "Printing Students of type " << studentTypeStrings[d] << endl;
+void Roster::printByDegreeType(DegreeType d) {
+  cout << "Printing Students of type " << degreeTypeStrings[d] << endl;
   for (int i = 0; i <= lastIndex; i++) {
-    if (this->students[i]->getDegreeType() = d) this->students[i]->print();
+    if (this->students[i]->getDegreeType() == d) this->students[i]->print();
   }
 }
 
@@ -124,32 +128,32 @@ Roster::~Roster() {
 int main() {
   int numStudents = 5;
 
-  const string studentData[] =
- {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
- "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
- "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
- "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
- "A5,Ian,Harwell,iharwel@my.wgu.edu,31,45,17.62,SOFTWARE"
+  const string studentData[] ={
+ "S1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
+ "N2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
+ "F3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
+ "S4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
+ "F5,Ian,Harwell,iharwel@my.wgu.edu,31,45,17,62,SOFTWARE"
 };
 
   Roster * ros = new Roster(numStudents);
-  cout << Parsing Data and adding students:\t";
-  for (int i = 0; i < numStudents: i++) {
+  cout << "Parsing Data and adding students:" << endl;
+  for (int i = 0; i < numStudents; i++) {
     ros->parseThenAdd(studentData[i]);
   }
   cout << "Done" << endl;
   cout << "Displaying all students" << endl;
   ros->print_ALL();
 
-  cout << "Removing A3" << endl;
-  if (ros->remove("A3")) {
+  cout << "Removing F3" << endl;
+  if (ros->remove("F3")) {
     ros->print_ALL();
     numStudents--;
   }
   else cout << "Student not found" << endl;
 
-  cout << "Removing A3" << endl;
-    if (ros->remove("A3")) ros->print_ALL();
+  cout << "Removing F3" << endl;
+    if (ros->remove("F3")) ros->print_ALL();
     else cout << "Student not found!" << endl;
 
   cout << "Printing average days to complete a course" << endl;
@@ -159,6 +163,5 @@ int main() {
 
   for (int i = 0; i < 3; i++) ros->printByDegreeType((DegreeType) i);
 
-  system("pause")
   return 0;
 }

@@ -1,35 +1,39 @@
+#pragma once
 #include <string>
-using namespace std;
+#include "degree.h"
+using std::string;
+
 
 class Student {
    public:
-      const static in daysToCompleteNumber = 3;
+      const static int daysArraySize = 3;
 
    protected:
 
+      string studentId;
       string firstName;
       string lastName;
-      string studentId;
       string emailAddress;
-      int    ageInYears;
-      double daysToComplete;
+      string ageInYears;
+      double daysToComplete[daysArraySize];
       DegreeType dtype;
 
   public:
       Student();
-      Student(string firstName, string lastName, string studentId, string emailAddress, int ageInYears, double daysToComplete[]);
 
-      string getFirstName;
-      string getLastName;
-      string getStudentId;
-      string getEmailAddress;
-      int    getAgeInYears;
-      double getDaysToComplete;
+      Student(string studentId, string firstName, string lastName, string emailAddress, string ageInYears, double daysToComplete[]);
+
+      string getStudentId();
+      string getFirstName();
+      string getLastName();
+      string getEmailAddress();
+      string getAgeInYears();
+      double* getDaysToComplete();
       virtual DegreeType getDegreeType() = 0;
 
+      void setStudentId(string studentId);
       void setFirstName(string firstName);
       void setLastName(string lastName);
-      void setStudentId(string studentId);
       void setEmailAddress(string emailAddress);
       void setAgeInYears(string ageInYears);
       void setDaysToComplete(double daysToComplete[]);

@@ -8,22 +8,23 @@ using namespace std;
 #include "networkStudent.h"
 
 class Roster {
+
+    private:
+  int lastIndex;
+  int capacity;
+  Student** students;
+
 public:
   Roster();
   Roster(int capacity);
 
   Student* getStudentAt(int index);
   void parseThenAdd(string datarow);
-  void add(string sFirst, string sLast, string sId, string sEmail, sAge, double sD1, double sD2, double sD3, DegreeType sDegree );
+  void add(string sId, string sFirst, string sLast, string sEmail, string sAge, double sD1, double sD2, double sD3, DegreeType sDegree );
   void print_ALL();
   bool remove(string studentId);
   void printAverageDaysToComplete(string studentId);
-  void printByDegreeType(DegreeType s);
-
-private:
-  int lastIndex;
-  int capacity;
-  Student** students;
+  void printByDegreeType(DegreeType sDegree);
 
   ~Roster();
 };
