@@ -12,7 +12,7 @@ class NetworkStudent : public Student {
        string lastName,
        string emailAddress,
        string ageInYears,
-       double daysToComplete[],
+       double days[],
        DegreeType degreeType
      );
 

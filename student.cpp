@@ -10,16 +10,16 @@ Student::Student() {
   this->studentId = " ";
   this->emailAddress = " ";
   this->ageInYears = " ";
-  for (int i = 0; i< daysArraySize; i++) this->daysToComplete[i] = 0;
+  for (int i = 0; i<dayArraySize; i++) this->days[i] = 0;
 }
 
-Student::Student(string firstName, string lastName, string studentId, string emailAddress, string ageInYears, double daysToComplete[]) {
+Student::Student(string firstName, string lastName, string studentId, string emailAddress, string ageInYears, double days[]) {
   this->firstName = firstName;
   this->lastName = lastName;
   this->studentId = studentId;
   this->emailAddress = emailAddress;
   this->ageInYears = ageInYears;
-  for (int i = 0; i< daysArraySize; i++) this->daysToComplete[i];
+  for (int i = 0; i< dayArraySize; i++) this->days[i] = days[i];
 }
 
 string Student::getStudentId() {
@@ -34,7 +34,6 @@ string Student::getLastName() {
    return lastName;
 }
 
-
 string Student::getAgeInYears() {
    return ageInYears;
 }
@@ -43,8 +42,8 @@ string Student::getEmailAddress() {
    return emailAddress;
 }
 
-double * Student::getDaysToComplete() {
-   return daysToComplete;
+double * Student::getDays() {
+   return days;
 }
 
 
@@ -68,20 +67,20 @@ void Student:: setEmailAddress(string emailAddress) {
   this->emailAddress = emailAddress;
 }
 
-void Student:: setDaysToComplete(double daysToComplete[]) {
-   for (int i = 0; i< daysArraySize; i++)
-    this->daysToComplete[i] = daysToComplete[i];
+void Student:: setDays(double days[]) {
+   for (int i = 0; i<dayArraySize; i++)
+    this->days[i] = days[i];
    }
 
 
 
 void Student::print() {
-   cout << "Student ID: " << studentId << ", ";
-   cout << "First name: " << firstName << ", ";
-   cout << "Last name: " << lastName << ", ";
-   cout << "Email: " << emailAddress << ", ";
-   cout << "Age: " << ageInYears << ", ";
-   cout << "Days in Course: " << daysToComplete[0] << ", " << daysToComplete[1] << ", " << daysToComplete[2] << ", and ";
+   cout << left << setw (4) << studentId;
+   cout << left << "First name: " << setw (7) << firstName;
+   cout << left << "Last name: " << setw (10) << lastName;
+   cout << left << "Email: " << setw (24) << emailAddress;
+   cout << "Age: " << ageInYears << "  ";
+   cout << "daysincourse: " << "{" << days[0] << " " << days[1] << " " << days[2] << "}  ";
 }
 
 Student::~Student (){

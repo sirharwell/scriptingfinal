@@ -1,23 +1,24 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 #include "securityStudent.h"
 
 
-SecurityStudent::SecurityStudent():Student {
-   dType = SECURITY;
+SecurityStudent::SecurityStudent():Student() {
+   dtype = SECURITY;
    return;
 }
 SecurityStudent::SecurityStudent(
+  string studentId,
   string firstName,
   string lastName,
-  string studentId,
   string emailAddress,
-  int    ageInYears,
-  double daysToComplete[],
+  string ageInYears,
+  double days[],
   DegreeType degreeType
 ):
-Student(firstName, lastName, studentId, emailAddress, ageInYears, daysToComplete) {
+Student(studentId, firstName, lastName, emailAddress, ageInYears, days) {
   dtype = SECURITY;
 }
 
@@ -27,9 +28,5 @@ DegreeType SecurityStudent::getDegreeType() {
 
 void SecurityStudent::print() {
   this->Student::print();
-  cout << "SECURITY" << endl;
-}
-
-SecurityStudent::~SecurityStudent() {
-  Student::~Student();
+  cout << "Program: Security" << endl;
 }

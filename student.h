@@ -6,7 +6,7 @@ using std::string;
 
 class Student {
    public:
-      const static int daysArraySize = 3;
+      const static int dayArraySize = 3;
 
    protected:
 
@@ -15,20 +15,20 @@ class Student {
       string lastName;
       string emailAddress;
       string ageInYears;
-      double daysToComplete[daysArraySize];
+      double days[dayArraySize];
       DegreeType dtype;
 
   public:
       Student();
 
-      Student(string studentId, string firstName, string lastName, string emailAddress, string ageInYears, double daysToComplete[]);
+      Student(string studentId, string firstName, string lastName, string emailAddress, string ageInYears, double days[]);
 
       string getStudentId();
       string getFirstName();
       string getLastName();
       string getEmailAddress();
       string getAgeInYears();
-      double* getDaysToComplete();
+      double* getDays();
       virtual DegreeType getDegreeType() = 0;
 
       void setStudentId(string studentId);
@@ -36,7 +36,7 @@ class Student {
       void setLastName(string lastName);
       void setEmailAddress(string emailAddress);
       void setAgeInYears(string ageInYears);
-      void setDaysToComplete(double daysToComplete[]);
+      void setDays(double days[]);
 
       virtual void print() = 0;
 

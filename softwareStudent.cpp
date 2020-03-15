@@ -15,10 +15,10 @@ SoftwareStudent::SoftwareStudent(
   string lastName,
   string emailAddress,
   string ageInYears,
-  double daysToComplete[],
+  double days[],
   DegreeType degreeType
 ):
-Student(studentId, firstName, lastName, emailAddress, ageInYears, daysToComplete) {
+Student(studentId, firstName, lastName, emailAddress, ageInYears, days) {
   dtype = SOFTWARE;
 }
 
@@ -28,5 +28,5 @@ DegreeType SoftwareStudent::getDegreeType() {
 
 void SoftwareStudent::print() {
   this->Student::print();
-  cout << "SOFTWARE" << endl;
+  cout << "Program: Software" << endl;
 }
