@@ -25,9 +25,9 @@ void Roster::parseThenAdd(string row) {
     if (lastIndex < capacity) {
         lastIndex++;
         DegreeType degreeType;
-        if (row[0] == 'F') degreeType = SOFTWARE;
-      else if (row[0] == 'S') degreeType = SECURITY;
-      else if (row[0] == 'N') degreeType = NETWORK;
+        if (row.find("SOFTWARE") != std::string::npos) degreeType = SOFTWARE;
+      else if (row.find("SECURITY") != std::string::npos) degreeType = SECURITY;
+      else if (row.find("NETWORK") != std::string::npos) degreeType = NETWORK;
       else {
         cerr << "Invalid Degree" << endl;
         exit(-1);
@@ -146,11 +146,11 @@ int main() {
   int numStudents = 5;
 
   const string studentData[5] ={
- "S1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
- "N2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
- "F3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
- "S4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
- "F5,Ian,Harwell,iharwel@my.wgu.edu,31,45,17,62,SOFTWARE"
+ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
+ "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
+ "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
+ "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
+ "A5,Ian,Harwell,iharwel@my.wgu.edu,31,45,17,62,SOFTWARE"
 };
 
   cout << "Scripting and Programming - Applications – C867, C++, #000683773, Ian Harwell" << endl;
@@ -164,15 +164,15 @@ int main() {
   cout << "Displaying all students" << endl;
   ros->print_ALL();
 
-  cout << "Removing F3" << endl;
-  if (ros->remove("F3")) {
+  cout << "Removing A3" << endl;
+  if (ros->remove("A3")) {
     ros->print_ALL();
     numStudents--;
   }
   else cout << "Student not found" << endl;
 
-  cout << "Removing F3" << endl;
-    if (ros->remove("F3")) ros->print_ALL();
+  cout << "Removing A3" << endl;
+    if (ros->remove("A3")) ros->print_ALL();
     else cout << "Student not found!" << endl;
 
   cout << "Printing average days to complete a course" << endl;
