@@ -5,21 +5,21 @@
 using namespace std;
 
 Student::Student() {
-    this->studentId = "";
-    this->firstName = "";
-    this->lastName = "";
-    this->emailAddress = "";
-    this->ageInYears = "";
-    for (int i = 0; i < dayArraySize; i++) this->days[i] = 0;
+  this->studentId = "";
+  this->firstName = "";
+  this->lastName = "";
+  this->emailAddress = "";
+  this->ageInYears = "";
+  for (int i = 0; i<dayArraySize; i++) this->days[i] = 0;
 }
 
 Student::Student(string studentId, string firstName, string lastName, string emailAddress, string ageInYears, double days[]) {
-    this->studentId = studentId;
-    this->firstName = firstName;
-    this->lastName = lastName;
-    this->emailAddress = emailAddress;
-    this->ageInYears = ageInYears;
-    for (int i = 0; i < dayArraySize; i++) this->days[i] = days[i];
+  this->studentId = studentId;
+  this->firstName = firstName;
+  this->lastName = lastName;
+  this->emailAddress = emailAddress;
+  this->ageInYears = ageInYears;
+  for (int i = 0; i< dayArraySize; i++) this->days[i] = days[i];
 }
 
 string Student::getStudentId() {
@@ -27,62 +27,63 @@ string Student::getStudentId() {
 }
 
 string Student::getFirstName() {
-    return firstName;
+   return firstName;
 }
 
 string Student::getLastName() {
-    return lastName;
+   return lastName;
 }
 
 string Student::getAgeInYears() {
-    return ageInYears;
+   return ageInYears;
 }
 
 string Student::getEmailAddress() {
-    return emailAddress;
+   return emailAddress;
 }
 
-double* Student::getDays() {
-    return days;
+double * Student::getDays() {
+   return days;
 }
 
 
-void Student::setStudentId(string studentId) {
-    this->studentId = studentId;
+void Student:: setStudentId(string studentId) {
+   this->studentId = studentId;
 }
 
-void Student::setFirstName(string firstName) {
-    this->firstName = firstName;
+void Student:: setFirstName(string firstName) {
+   this->firstName = firstName;
 }
 
-void Student::setLastName(string lastName) {
-    this->lastName = lastName;
+void Student:: setLastName(string lastName) {
+   this->lastName = lastName;
 }
 
 void Student::setAgeInYears(string ageInYears) {
-    this->ageInYears = ageInYears;
+   this->ageInYears = ageInYears;
 }
 
-void Student::setEmailAddress(string emailAddress) {
-    this->emailAddress = emailAddress;
+void Student:: setEmailAddress(string emailAddress) {
+  this->emailAddress = emailAddress;
 }
 
-void Student::setDays(double days[]) {
-    for (int i = 0; i < dayArraySize; i++)
-        this->days[i] = days[i];
-}
+void Student:: setDays(double days[]) {
+   for (int i = 0; i<dayArraySize; i++)
+    this->days[i] = days[i];
+   }
 
 
 
 void Student::print() {
-    cout << left << setw(4) << studentId;
-    cout << left << "First name: " << setw(7) << firstName;
-    cout << left << "Last name: " << setw(10) << lastName;
-    cout << left << "Email: " << setw(24) << emailAddress;
-    cout << "Age: " << ageInYears << "  ";
-    cout << "daysincourse: " << "{" << days[0] << " " << days[1] << " " << days[2] << "}  ";
-}
+   cout << left << setw (4) << getStudentId();
+   cout << left << "First name: " << setw (7) << getFirstName();
+   cout << left << "Last name: " << setw (10) << getLastName();
+   cout << left << "Email: " << setw (24) << getEmailAddress();
+   cout << "Age: " << getAgeInYears() << "  ";
+   double* days = getDays();
+   cout << "daysincourse: " << "{" << days[0] << " " << days[1] << " " << days[2] << "}  ";
+   }
 
-Student::~Student() {
+Student::~Student (){
 
 }
